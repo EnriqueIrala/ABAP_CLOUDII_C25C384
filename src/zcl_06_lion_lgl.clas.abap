@@ -1,0 +1,23 @@
+CLASS zcl_06_lion_lgl DEFINITION
+  PUBLIC
+  INHERITING FROM zcl_05_animal_lgl
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    METHODS: walk REDEFINITION.
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_06_lion_lgl IMPLEMENTATION.
+
+  METHOD walk.
+    rv_walk = 'The lion Walks'.
+  ENDMETHOD.
+
+ENDCLASS.
