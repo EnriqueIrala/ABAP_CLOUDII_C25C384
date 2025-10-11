@@ -7,7 +7,10 @@ CLASS zcl_24_timer_log_c384 DEFINITION
 
     EVENTS time_out EXPORTING VALUE(ev_hour) TYPE zsyst_uzeit.
 
+    DATA: user TYPE string.
+
     METHODS:
+      constructor,
       increment_counter IMPORTING iv_counter TYPE i,
       check_limit.
 
@@ -20,6 +23,12 @@ ENDCLASS.
 
 
 CLASS zcl_24_timer_log_c384 IMPLEMENTATION.
+
+  METHOD constructor.
+
+    me->user = sy-uname.
+
+  ENDMETHOD.
 
   METHOD check_limit.
 
