@@ -176,17 +176,59 @@ CLASS zcl_exec_01_lgl_c384 IMPLEMENTATION.
 *    out->write( lv_result ).
 
 * Pattern - Singleton
-    DATA: lo_singleton1 TYPE REF TO zcl_30_singleton_log_c384,
-          lo_singleton2 TYPE REF TO zcl_30_singleton_log_c384.
+*    DATA: lo_singleton1 TYPE REF TO zcl_30_singleton_log_c384,
+*          lo_singleton2 TYPE REF TO zcl_30_singleton_log_c384.
+*
+*    lo_singleton1 = zcl_30_singleton_log_c384=>get_instance( ).
+*    WAIT UP TO 2 SECONDS.
+*
+*    lo_singleton2 = zcl_30_singleton_log_c384=>get_instance( ).
+*
+*    out->write( lo_singleton1->time ).
+*    out->write( lo_singleton2->time ).
 
-    lo_singleton1 = zcl_30_singleton_log_c384=>get_instance( ).
-    WAIT UP TO 2 SECONDS.
 
-    lo_singleton2 = zcl_30_singleton_log_c384=>get_instance( ).
+* Pattern - Factory Method
+*    DATA: lo_shape   TYPE REF TO zif_06_log_c384,
+*          lo_factory TYPE REF TO zcl_34_factory_log_c384.
+*
+*    lo_factory = new #( ).
+*
+*    lo_shape = lo_factory->get_shape( 'Triangle' ).
+*
+*    out->write( lo_shape->draw_shape( ) ).
 
-    out->write( lo_singleton1->time ).
-    out->write( lo_singleton2->time ).
 
+* Pattern - Model/View/Controller
+*    DATA: lv_name TYPE string VALUE 'Juan Smith',
+*          lv_role TYPE string VALUE 'Developer'.
+*
+*    DATA(lo_model) = NEW zcl_35_model_log_c384(
+*      iv_name = lv_name
+*      iv_role = lv_role ).
+*
+*    DATA(lo_view) = NEW zcl_36_view_log_c384( ).
+*
+*    DATA(lo_controller) = NEW zcl_37_controller_log_c384( ).
+*
+*    lo_controller->set_model( lo_model ).
+*    lo_controller->set_view( lo_view  ).
+*
+*    lo_controller->get_view(  )->display_employee(
+*      iv_name = lo_model->get_name( )
+*      iv_role = lo_model->get_role( )
+*      io_out  = out ).
+
+* Test class
+    DATA(lo_factorial) = NEW zcl_38_get_factorial_log_c384( ).
+
+    lo_factorial->get_factorial(
+      EXPORTING
+        iv_number    = 4
+      IMPORTING
+        ev_factorial = DATA(lv_factorial) ).
+
+    out->write( lv_factorial ).
 
 
 

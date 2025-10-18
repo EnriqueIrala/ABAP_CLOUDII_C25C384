@@ -31,6 +31,8 @@ CLASS zcl_30_singleton_log_c384 IMPLEMENTATION.
     ENDIF.
     ro_instance = lo_instance.
 
+
+
   ENDMETHOD.
 
   METHOD constructor.
