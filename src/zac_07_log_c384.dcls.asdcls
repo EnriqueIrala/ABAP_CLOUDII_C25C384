@@ -1,0 +1,11 @@
+@EndUserText.label: 'Priviledge Access'
+@MappingRole: true
+define role ZAC_07_LOG_C384 {
+    grant
+        select
+            on
+                zcds_35_log_c384
+                    where
+                        false;
+                        
+}
