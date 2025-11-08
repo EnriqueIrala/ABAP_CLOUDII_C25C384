@@ -220,15 +220,31 @@ CLASS zcl_exec_01_lgl_c384 IMPLEMENTATION.
 *      io_out  = out ).
 
 * Test class
-    DATA(lo_factorial) = NEW zcl_38_get_factorial_log_c384( ).
+*    DATA(lo_factorial) = NEW zcl_38_get_factorial_log_c384( ).
+*
+*    lo_factorial->get_factorial(
+*      EXPORTING
+*        iv_number    = 4
+*      IMPORTING
+*        ev_factorial = DATA(lv_factorial) ).
+*
+*    out->write( lv_factorial ).
 
-    lo_factorial->get_factorial(
-      EXPORTING
-        iv_number    = 4
-      IMPORTING
-        ev_factorial = DATA(lv_factorial) ).
-
-    out->write( lv_factorial ).
+* cl_dd_ddl_annotation_service=>get_annos(
+*   EXPORTING
+*     entityname         = 'ZCDS_38_LOG_C384'
+**     variant            = ''
+**     language           = SY-LANGU
+**     extend             = abap_false
+**     metadata_extension = abap_true
+**     translation        = abap_true
+**     null_values        = abap_false
+*   IMPORTING
+**     entity_annos       =
+*     element_annos      = data(lt_element_annos)
+**     parameter_annos    =
+**     annos_tstmp        =
+* ).
 
 
 
